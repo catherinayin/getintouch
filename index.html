@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Julia Moon Cake — Contact</title>
+<style>
+  /* ===== Brand Tokens (match Order page) ===== */
+  :root{
+    --ink:#111;
+    --lavender:#e3d1ee;
+    --mustard:#efb549;
+    --stroke:2px;
+    --radius:20px;
+    --container:1200px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font:16px/1.5 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:var(--ink);
+    background:#fff;
+  }
+
+  /* ===== Top Bar ===== */
+  .topband{ background:var(--lavender); }
+  .nav{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav a{ color:var(--ink); text-decoration:none; font-weight:600; letter-spacing:.02em; }
+  .nav-left, .nav-right{ display:flex; gap:24px; }
+  .logo{
+    width:56px; height:56px; border-radius:50%;
+    background:var(--mustard);
+    border:var(--stroke) solid var(--ink);
+    display:grid; place-items:center; font-weight:900;
+  }
+
+  /* ===== Page Frame ===== */
+  .container{ max-width:var(--container); margin:0 auto; padding:32px 24px 80px; }
+  .section-title{ text-align:center; font-weight:800; letter-spacing:.02em; margin:16px 0 10px; font-size:28px; }
+  .kicker{ text-align:center; margin:0 auto 28px; max-width:760px; color:#333; }
+
+  .divider{
+    height:14px;
+    background:linear-gradient(to right, transparent 0, transparent 8%, var(--lavender) 8%, var(--lavender) 92%, transparent 92%, transparent 100%);
+    border-top:var(--stroke) solid var(--ink);
+    border-bottom:var(--stroke) solid var(--ink);
+    margin:28px 0 24px;
+  }
+
+  /* ===== Contact Layout ===== */
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 420px; gap:28px;
+    align-items:start;
+  }
+  @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
+
+  /* ===== Card / Form ===== */
+  .card{
+    background:#fff; border:var(--stroke) solid var(--ink);
+    border-radius:var(--radius); padding:18px;
+  }
+  label{ display:block; margin:10px 0; }
+  input[type="text"], input[type="email"], textarea{
+    width:100%; border:var(--stroke) solid var(--ink);
+    border-radius:16px; padding:12px 14px; font:inherit; background:#fff;
+  }
+  textarea{ min-height:140px; resize:vertical; }
+
+  .btn{
+    appearance:none; border:none; cursor:pointer;
+    padding:12px 18px; border-radius:999px; font-weight:800;
+    background:var(--mustard); border:var(--stroke) solid var(--ink);
+  }
+  .btn:active{ transform:translateY(1px); }
+
+  .muted{ opacity:.8; font-size:.95rem; }
+
+  /* ===== Illustration Panel (on-brand rounded box) ===== */
+  .illu{
+    border:var(--stroke) solid var(--ink);
+    border-radius:var(--radius);
+    padding:0; overflow:hidden; background:#fff;
+    display:grid; place-items:center; min-height:360px;
+  }
+  .illu-band{
+    width:100%; height:120px; background:var(--lavender);
+    border-bottom:var(--stroke) solid var(--ink);
+  }
+  .moon-bunny{
+    display:grid; place-items:center; text-align:center; padding:16px;
+  }
+  .moon-bunny .badge{
+    display:inline-grid; place-items:center;
+    width:88px; height:88px; border-radius:50%;
+    background:var(--mustard); border:var(--stroke) solid var(--ink);
+    font-weight:900; margin-bottom:10px;
+  }
+  .info{
+    margin-top:10px; display:grid; gap:6px;
+  }
+  .info b{ display:block; }
+
+  /* Footer note row under form */
+  .fineprint{ margin-top:10px; }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="topband">
+    <nav class="nav" aria-label="Main">
+      <div class="nav-left">
+        <a href="#">MENU</a>
+        <a href="#">ABOUT</a>
+      </div>
+      <div class="logo" aria-label="Julia Moon Cake logo">JM</div>
+      <div class="nav-right">
+        <a href="#" style="text-decoration:underline">CONTACT</a>
+        <a href="#">ORDER</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Content -->
+  <main class="container">
+    <h1 class="section-title">GET IN TOUCH</h1>
+    <p class="kicker">We’d love to hear from you! Order inquiries, collaborations, or feedback — send us a message below.</p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <section class="contact-grid">
+      <!-- Left: On-brand illustration/info panel -->
+      <aside class="illu" aria-label="Brand panel">
+        <div class="illu-band" aria-hidden="true"></div>
+        <div class="moon-bunny">
+          <div class="badge">JM</div>
+          <div class="info">
+            <div>
+              <b>Pickup Location</b>
+              Kitchener, Ontario
+            </div>
+            <div>
+              <b>Email</b>
+              info@juliamooncake.com
+            </div>
+            <div>
+              <b>Hours</b>
+              Thu–Sun, 11:00–6:00 (pickup by appt.)
+            </div>
+            <div class="muted">Handcrafted small-batch mooncakes • Since 2025</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: Contact form -->
+      <form class="card" id="contactForm" onsubmit="event.preventDefault(); alert('Thanks! We received your message and will reply soon.');">
+        <h3 style="margin:0 0 8px; font-weight:800;">Send a Message</h3>
+        <p class="muted" style="margin:0 0 12px;">We aim to respond within 1–2 days.</p>
+
+        <label>Name
+          <input type="text" name="name" required>
+        </label>
+
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>How can we help you?
+          <textarea name="message" placeholder="Ask about flavors, lead time, bulk orders, or collaborations…" required></textarea>
+        </label>
+
+        <button class="btn" type="submit">Submit</button>
+        <p class="fineprint muted">By submitting, you agree to our terms and understand your information may be used to respond to your inquiry.</p>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
